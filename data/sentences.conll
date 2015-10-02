@@ -1,0 +1,42 @@
+1	The	_	_	D	_	_	_	2	_	det	_	_	_
+2	boy	_	_	N	_	_	_	3	_	nsubj	_	_	_
+3	eats	_	_	V	_	_	_	0	_	root	_	_	_
+4	cheese	_	_	N	_	_	_	3	_	dobj	_	_	_
+5	.	_	_	,	_	_	_	3	_	punct	_	_	_
+6	The	_	_	D	_	_	_	7	_	det	_	_	_
+7	girl	_	_	N	_	_	_	8	_	nsubj	_	_	_
+8	loves	_	_	V	_	_	_	3	_	parataxis	_	_	_
+9	the	_	_	D	_	_	_	10	_	det	_	_	_
+10	boy	_	_	N	_	_	_	8	_	dobj	_	_	_
+11	.	_	_	,	_	_	_	3	_	punct	_	_	_
+12	I	_	_	O	_	_	_	13	_	nsubj	_	_	_
+13	hate	_	_	V	_	_	_	3	_	parataxis	_	_	_
+14	the	_	_	D	_	_	_	15	_	det	_	_	_
+15	girl	_	_	N	_	_	_	13	_	dobj	_	_	_
+16	.	_	_	,	_	_	_	3	_	punct	_	_	_
+
+1	Video	_	_	N	_	_	_	3	_	nn	_	_	_
+2	game	_	_	N	_	_	_	3	_	nn	_	_	_
+3	villains	_	_	N	_	_	_	4	_	nsubj	_	_	_
+4	hit	_	_	V	_	_	_	0	_	root	_	_	_
+5	the	_	_	D	_	_	_	6	_	det	_	_	_
+6	road	_	_	N	_	_	_	4	_	dobj	_	_	_
+7	today	_	_	N	_	_	_	4	_	tmod	_	_	_
+8	.	_	_	,	_	_	_	4	_	punct	_	_	_
+
+1	I	_	_	O	_	_	_	2	_	nsubj	_	_	_
+2	hate	_	_	V	_	_	_	0	_	root	_	_	_
+3	video	_	_	N	_	_	_	4	_	nn	_	_	_
+4	game	_	_	N	_	_	_	5	_	nn	_	_	_
+5	villains	_	_	N	_	_	_	2	_	dobj	_	_	_
+6	.	_	_	,	_	_	_	2	_	punct	_	_	_
+
+1	Give	_	_	V	_	_	_	0	_	root	_	_	_
+2	me	_	_	O	_	_	_	1	_	iobj	_	_	_
+3	your	_	_	D	_	_	_	6	_	poss	_	_	_
+4	bank	_	_	N	_	_	_	5	_	nn	_	_	_
+5	account	_	_	N	_	_	_	6	_	nn	_	_	_
+6	details	_	_	N	_	_	_	1	_	dobj	_	_	_
+7	.	_	_	,	_	_	_	1	_	punct	_	_	_
+
+
