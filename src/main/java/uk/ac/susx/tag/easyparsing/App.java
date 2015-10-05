@@ -106,18 +106,17 @@ public class App {
         }
         App parser = new App();
 
-        switch(option){
-            case "help":
-                parser.help();
-                break;
-            case "interactive":
-                parser.interactive();
-                break;
-            case "file":
-                parser.processfile(args[1]);
-                break;
-            default:
-                parser.interactive();
+        if (option.equals("help")) {
+            parser.help();
+
+        } else if (option.equals("interactive")) {
+            parser.interactive();
+
+        } else if (option.equals("file")) {
+            parser.processfile(args[1]);
+
+        } else {
+            parser.interactive();
         }
 
 
