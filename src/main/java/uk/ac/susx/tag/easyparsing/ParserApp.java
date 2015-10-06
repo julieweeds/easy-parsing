@@ -1,22 +1,10 @@
 package uk.ac.susx.tag.easyparsing;
-import uk.ac.susx.tag.classificationframework.Util;
-import uk.ac.susx.tag.classificationframework.datastructures.DependencyTree;
-import uk.ac.susx.tag.classificationframework.datastructures.Document;
-import uk.ac.susx.tag.classificationframework.datastructures.Instance;
-import uk.ac.susx.tag.classificationframework.featureextraction.documentprocessing.TweetTagConverter;
-import uk.ac.susx.tag.classificationframework.featureextraction.pipelines.FeatureExtractionPipeline;
 import uk.ac.susx.tag.dependencyparser.Parser;
-import uk.ac.susx.tag.dependencyparser.datastructures.Token;
-
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
-import java.util.Scanner;
+
 
 
 /**
