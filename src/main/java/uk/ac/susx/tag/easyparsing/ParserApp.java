@@ -46,14 +46,29 @@ public class ParserApp extends EasyFileVisitor{
 
     }
     public void processFile(String filename) {
-        //filename is path
+        //filename is path, only process conll files
+        //ensure that directory hierarchy has been built before creating output file
 
         if (filename.endsWith("conll")) {
             File infile = new File(filename);
             String outfilename = filename.replaceAll("tagged", "parsed");
 
+            String[] outparts=outfilename.split("/");
+            String outdir=outparts[0];
+            for (int i=1;i<outparts.length-1;i++){
+                outdir+="/"+outparts[i];
+            }
+            if(Files.notExists(Paths.get(outdir))){
+                try {
+                    Files.createDirectories(Paths.get(outdir));
+                } catch (IOException e) {
+                    System.err.println("Cannot create directory "+outdir);
+                    e.printStackTrace();
+                }
+            }
+
             File outfile = new File(outfilename);
-            //TO DO ensure that all parts of the out directory path have been created
+
             try {
                 myparser.batchParseFile(infile, outfile, "id, form, lemma, pos, ner", "id, form, lemma, pos, ner, head, deprel", "");
             } catch (IOException e) {
@@ -64,19 +79,29 @@ public class ParserApp extends EasyFileVisitor{
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
 
         if (args.length<1){
             System.out.println("Required inputdir as argument");
             System.exit(-1);
         }
-        ParserApp myapp = new ParserApp(args[0]);
+        try {
+            ParserApp myapp = new ParserApp(args[0]);
 
         if (args.length==2){
             myapp.processFile(String.valueOf(Paths.get(args[0], args[1])));
         } else {
-            myapp.processDir(myapp.indir);
+            try {
+                myapp.processDir(myapp.indir);
+            } catch (IOException e){
+                System.err.println("Error processing directory "+myapp.indir);
+                e.printStackTrace();
+            }
+        }
+        } catch (IOException e){
+            System.err.println("Error starting parser");
+            e.printStackTrace();
         }
     }
 }
