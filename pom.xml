@@ -6,8 +6,8 @@
 
     <!--suppress MavenRedundantGroupId -->
     <groupId>uk.ac.susx.tag</groupId>
-    <artifactId>dialoguer</artifactId>
-    <version>0.2.1-SNAPSHOT</version>
+    <artifactId>easy-parsing</artifactId>
+    <version>0.1.1-SNAPSHOT</version>
     <inceptionYear>2015</inceptionYear>
 
     <parent>
