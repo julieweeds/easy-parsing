@@ -19,11 +19,21 @@ public class ParserApp extends EasyFileVisitor{
     private final Parser myparser;
     private final String indir;
     private final String outdir;
+    private String inputformat;
+    private String outputformat;
 
     ParserApp(String indir) throws IOException {
         myparser=new Parser("full_wsj_penn_pos_stanford_dep");
         this.indir=indir;
-        this.outdir=indir.replaceAll("tagged","parsed");
+        this.outputformat="id, form, lemma, pos, ner, head, deprel";
+        if (this.indir.endsWith("sfd_parsed")){
+            this.outdir=indir.replaceAll("sfd_parsed","parsed");
+            this.inputformat=this.outputformat;
+        } else {
+            this.outdir = indir.replaceAll("tagged", "parsed");
+            this.inputformat="id, form, lemma,pos,ner";
+        }
+
         if (Files.notExists(Paths.get(outdir))){
             Files.createDirectories(Paths.get(outdir));
         }
@@ -40,6 +50,7 @@ public class ParserApp extends EasyFileVisitor{
         if (filename.endsWith("conll")) {
             File infile = new File(filename);
             String outfilename = filename.replaceAll("tagged", "parsed");
+            outfilename=outfilename.replaceAll("sfd_parsed","parsed");
 
             String[] outparts=outfilename.split("/");
             String outdir=outparts[0];
@@ -58,7 +69,7 @@ public class ParserApp extends EasyFileVisitor{
             File outfile = new File(outfilename);
 
             try {
-                myparser.batchParseFile(infile, outfile, "id, form, lemma, pos, ner", "id, form, lemma, pos, ner, head, deprel", "");
+                myparser.batchParseFile(infile, outfile, this.inputformat, this.outputformat, "");
             } catch (IOException e) {
                 e.printStackTrace();
             }
